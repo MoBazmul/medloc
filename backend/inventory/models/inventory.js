@@ -43,7 +43,10 @@ const inventorySchema = new mongoose.Schema({
     enum: ['Active', 'OutOfStock', 'Discontinued'],
     default: 'Active'
   },
-  timestamps: true
+  createdAt: {
+    type: Date,
+    default: Date.now()
+  }
 })
 
 const Inventory = mongoose.model('Inventory', inventorySchema)

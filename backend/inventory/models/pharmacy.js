@@ -32,7 +32,10 @@ const pharmacySchema = new mongoose.Schema({
   inventory: {
     type: Inventory
   },
-  timestamps: true
+  createdAt: {
+    type: Date,
+    default: Date.now()
+  }
 })
 
 const Pharmacy = pharmacySchema.model('Pharmacy', pharmacySchema)

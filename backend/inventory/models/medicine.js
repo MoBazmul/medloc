@@ -31,7 +31,10 @@ const medicineSchema = new mongoose.Schema({
     },
     required: true
   },
-  timestamps: true
+  createdAt: {
+    type: Date,
+    default: Date.now()
+  }
 })
 
 const Medicine = mongoose.model('Medicine', medicineSchema)
