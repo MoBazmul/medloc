@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Inventory = require('../models/inventory')
 
 const pharmacySchema = new mongoose.Schema({
   id: {
@@ -27,6 +28,9 @@ const pharmacySchema = new mongoose.Schema({
   },
   otherServices: {
     type: [String]
+  },
+  inventory: {
+    type: Inventory
   },
   timestamps: true
 })
