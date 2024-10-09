@@ -30,6 +30,7 @@ app.use(express.json())
 // Routes
 app.use(verifyJWT)
 app.use('/medicines', require('./routes/api/v1/medicines'))
+app.use('/pharmacy', require('./routes/api/v1/pharmacy'))
 
 // 404 error handler
 app.all('*', notFoundErrorHandler)
