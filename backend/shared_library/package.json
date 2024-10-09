@@ -1,5 +1,5 @@
 {
-  "name": "inventory",
+  "name": "shared_library",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,8 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.1",
-    "mongoose": "^8.7.0",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.2",
     "uuid": "^10.0.0"
   }
 }
