@@ -40,8 +40,6 @@ const updateMedicine = async(req, res) => {
 
 const deleteMedicine = async(req, res) => {
   if(!req.body.id) return res.status(400).json({ 'message': 'An ID is required' })
-  const medicine = await Medicine.findById(req.body.id)
-  if(!medicine) return res.status(204).json({ 'message': 'The medicine does not exist' })
 
   await Medicine.deleteOne({ id: req.body.id })
   res.sendStatus(204)
