@@ -1,6 +1,14 @@
 const mongoose = require('mongoose')
 
 const inventorySchema = new mongoose.Schema({
+  id: {
+    type: String,
+    default: uuid()
+  },
+  pharmacyId: {
+    type: String,
+    required: true
+  },
   medcineId: {
     type: String
   },
