@@ -1,30 +1,9 @@
 const express = require('express')
 const app = express()
-const cors = require('cors')
-const corsOptions = require('../shared_library/config/corsOptions')
-const credentials = require('../shared_library/middleware/credentials')
-const { logger } = require('../shared_library/middleware/logEvents')
-const errorHandler = require('../shared_library/middleware/errorHandler')
-const notFoundErrorHandler = require('../shared_library/config/404')
-const connectDB = require('../shared_library/config/dbConn')
+const { errorHandler, notFoundErrorHandler, mainConfig, PORT } = require('shared_library')
 
-const PORT = require('../shared_library/config/port')
-
-// Log message for each request
-app.use(logger)
-
-// Connect the DB
-connectDB()
-
-// CORS middleware
-app.use(credentials)
-app.use(cors(corsOptions))
-
-// Middleware for urlencoded data (forms data)
-app.use(express.urlencoded({ extended: false }))
-
-// Middleware for json data
-app.use(express.json())
+// Configure middlewares
+mainConfig()
 
 // Routes
 app.use('/register', require('./routes/register'))
