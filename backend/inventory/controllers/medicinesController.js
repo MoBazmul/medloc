@@ -1,4 +1,4 @@
-const Medicine = require('../models/medicine')
+const { Medicine } = require('shared_library')
 
 const getAllMedicines = async(req, res) => {
   const allMedicines = await Medicine.find()
