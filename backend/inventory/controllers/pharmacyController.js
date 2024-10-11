@@ -1,4 +1,4 @@
-const Pharmacy = require('../models/pharmacy')
+const { Pharmacy, Customer } = require('shared_library')
 
 const getAllPharmacies = async(req, res) => {
   const allPharmacies = await Pharmacy.find()
@@ -7,9 +7,14 @@ const getAllPharmacies = async(req, res) => {
 
 const addPharmacy = async(req, res) => {
   const { name, workingHours, location, otherServices } = req.body
+  const cookies = req.cookies
   if(!name || !workingHours || !location) return res.status(400).json({ 'message': 'Name, Working Hours and Location required' })
+  if(!cookies?.jwt) return res.sendStatus(400)
+
+  const pharmacist = await Customer.findOne({ token: cookies.jwt })
   
   const newpharmacy = new Pharmacy({
+    pharmacistId: pharmacist.id,
     name: name,
     workingHours: workingHours,
     location: location,
