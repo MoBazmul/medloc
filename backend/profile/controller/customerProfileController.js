@@ -1,4 +1,4 @@
-const Customer = require('../../inventory/models/medicine')
+const { Customer } = require('shared_library')
 
 const handleCustomerProfile = async(req, res) => {
   if(!req.body.name) return res.status(400).json({ 'message': 'Invalid Request' })
