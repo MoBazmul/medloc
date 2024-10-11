@@ -1,4 +1,4 @@
-const Pharmacy = require('../../inventory/models/pharmacy')
+const { Pharmacy } = require('shared_library')
 
 const handlePharmacyProfile = async(req, res) => {
   if(!req.body.name) return res.status(400).json({ 'message': 'Invalid Request' })
